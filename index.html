@@ -2,22 +2,53 @@
 <html>
 <head>
 <title>Display PDF</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden; /* Prevent scrollbars on the body */
+  }
+
+  #pdfViewerContainer {
+    width: 100%;
+    height: 100%;
+  }
+
+  #pdfViewer {
+    width: 100%;
+    height: 100%;
+    border: none; /* Remove default iframe border */
+  }
+</style>
 </head>
 <body>
 
-<iframe id="pdfViewer" src="./Sapphire Meditec.pdf" width="800" height="600" type="application/pdf"></iframe>
+<div id="pdfViewerContainer">
+  <iframe id="pdfViewer" src="./Sapphire Meditec.pdf" type="application/pdf"></iframe>
+</div>
 
 <script>
-//Optional: Dynamically change the PDF source.
 function changePdf(pdfPath) {
   document.getElementById('pdfViewer').src = pdfPath;
 }
 
-//Example of using the function.
-//changePdf("another/path/another.pdf");
+// Example usage(s):
+// changePdf("another/path/another.pdf");
+// changePdf("file:///C:/path/to/your/local/file.pdf"); // Local file access (browser security restrictions may apply)
 
-//Example for local file access (may have browser security restrictions):
-//changePdf("file:///C:/path/to/your/local/file.pdf"); //Adjust path as needed.
+// Optional: Add event listener for orientation changes (if needed)
+window.addEventListener('orientationchange', function() {
+  // You might want to reload or recalculate dimensions here if necessary
+  console.log("Orientation changed");
+});
+
+//Optional: add event listener for resize.
+window.addEventListener('resize', function(){
+    console.log("window resized");
+});
+
 </script>
 
 </body>
