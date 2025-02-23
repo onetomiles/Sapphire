@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Display PDF</title>
+</head>
+<body>
+
+<iframe id="pdfViewer" src="./Sapphire Meditec.pdf" width="800" height="600" type="application/pdf"></iframe>
+
+<script>
+//Optional: Dynamically change the PDF source.
+function changePdf(pdfPath) {
+  document.getElementById('pdfViewer').src = pdfPath;
+}
+
+//Example of using the function.
+//changePdf("another/path/another.pdf");
+
+//Example for local file access (may have browser security restrictions):
+//changePdf("file:///C:/path/to/your/local/file.pdf"); //Adjust path as needed.
+</script>
+
+</body>
+</html>
